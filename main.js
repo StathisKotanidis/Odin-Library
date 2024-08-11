@@ -15,6 +15,7 @@ let titleInput = document.querySelector("#title");
 let authorInput = document.querySelector("#author");
 let pagesInput = document.querySelector("#pages");
 let radioButtons = document.querySelectorAll('input[name="isRead"]');
+let booksContainer = document.querySelector(".books-container");
 
 //open form
 let openFormBtn = document.querySelector("#open-form");
@@ -44,22 +45,51 @@ addBookbtn.addEventListener("click", (e) => {
   let authorValue = authorInput.value;
   let pagesValue = pagesInput.value;
 
-  let selectedValue;
+  let status;
   for (const radioButton of radioButtons) {
     if (radioButton.checked) {
-      selectedValue = radioButton.value;
+      status = radioButton.value;
       break;
     }
   }
 
-  //Creating Obj,Giving the OBj my form value, Pushing Obj to array
-  let newBook = new Book(titleValue, authorValue, pagesValue, selectedValue);
+  //Creating Obj,Giving the OBj my form values, Pushing Obj to array
+  let newBook = new Book(titleValue, authorValue, pagesValue, status);
   addBookToLibrary(newBook);
-  console.log(newBook);
-  console.log(myLibrary);
-});
 
-// console.log(titleValue);
-// console.log(authorValue);
-// console.log(pagesValue);
-// console.log(selectedValue);
+  //Rendering the book on the screen
+  let book = document.createElement("div");
+  book.classList.add("book");
+  let tempStatus = newBook.status;
+
+  book.innerHTML = `
+  <h2>${newBook.title}</h2>
+  <p><strong>Author:</strong> ${newBook.author}</p>
+  <p><strong>Pages:</strong> ${newBook.pages}</p>
+  <p class="current-status"><strong>Status:</strong> ${newBook.status}</p>
+  <button class="change-status">Change Status </button>
+  <button class="delete"><i class='bx bx-trash-alt'></i> </button>
+`;
+  console.log(newBook.status);
+
+  console.log(tempStatus);
+  booksContainer.appendChild(book);
+
+  // Delete Book instance
+  let deleteBtn = book.querySelector(".delete");
+  deleteBtn.addEventListener("click", () => {
+    book.remove();
+  });
+
+  //Changing Status
+  let currentStatus = book.querySelector(".current-status");
+  let changeStatusBtn = book.querySelector(".change-status");
+  changeStatusBtn.addEventListener("click", () => {
+    if (tempStatus === "Read") {
+      tempStatus = "Not Read";
+    } else {
+      tempStatus = "Read";
+    }
+    currentStatus.innerHTML = `<strong>Status:</strong> ${tempStatus}`;
+  });
+});

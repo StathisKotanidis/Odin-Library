@@ -60,10 +60,11 @@ form {
   flex-direction: column;
   justify-content: space-between;
   margin: 0 auto;
-  margin-top: 10rem;
+  margin-top: 2rem;
   padding: 1rem;
   text-align: center;
   position: relative;
+  z-index: 999;
 }
 
 form input {
@@ -109,4 +110,56 @@ form label {
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.books-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+  padding: 2rem;
+}
+
+.book {
+  background-image: url("images/book-cover.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-repeat: cover;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  width: 20%;
+  border-left: 15px solid black;
+  position: relative;
+}
+
+.book h2 {
+  font-size: 1.1rem;
+}
+
+.change-status {
+  background-color: black;
+  color: white;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 6px;
+  font-size: 15px;
+}
+
+.book .delete {
+  background-color: black;
+  color: white;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 100px;
+  padding: 5px;
+}
+
+.delete i {
+  font-size: 20px;
 }
