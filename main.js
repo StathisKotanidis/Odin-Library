@@ -1,3 +1,16 @@
+const myLibrary = [];
+
+function Book(title, author, pages, status) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.status = status;
+}
+
+function addBookToLibrary(obj) {
+  myLibrary.push(obj);
+}
+
 let titleInput = document.querySelector("#title");
 let authorInput = document.querySelector("#author");
 let pagesInput = document.querySelector("#pages");
@@ -26,6 +39,7 @@ let addBookbtn = document.querySelector("#add-book");
 addBookbtn.addEventListener("click", (e) => {
   e.preventDefault();
 
+  //saving the actual  user's form values in new variables
   let titleValue = titleInput.value;
   let authorValue = authorInput.value;
   let pagesValue = pagesInput.value;
@@ -38,18 +52,14 @@ addBookbtn.addEventListener("click", (e) => {
     }
   }
 
-  console.log(titleValue);
-  console.log(authorValue);
-  console.log(pagesValue);
-  console.log(selectedValue);
+  //Creating Obj,Giving the OBj my form value, Pushing Obj to array
+  let newBook = new Book(titleValue, authorValue, pagesValue, selectedValue);
+  addBookToLibrary(newBook);
+  console.log(newBook);
+  console.log(myLibrary);
 });
 
-const myLibrary = [];
-
-function Book(title, author, pages) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-}
-
-// function addBookToLibrary() {}
+// console.log(titleValue);
+// console.log(authorValue);
+// console.log(pagesValue);
+// console.log(selectedValue);
