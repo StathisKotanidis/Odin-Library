@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Odin | Library</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <i class="bx bx-library"></i>
+      <h1>Library</h1>
+    </header>
+
+    <form class="book-form hidden" action="">
+      <i id="close-button" class="bx bx-x"></i>
+      <label for="title">Book's title</label>
+      <input id="title" name="title" type="text" required />
+      <label for="author">Author's name</label>
+      <input id="author" name="author" type="text" required />
+      <label for="pages">Number of pages</label>
+      <input id="pages" name="pages" type="number" required />
+      <div class="radio-container">
+        <input type="radio" id="read" name="isRead" value="Read" />
+        <label for="read">Read</label>
+        <label for="not-read">Not Read</label>
+        <input type="radio" id="not-read" name="isRead" value="Not Read" />
+      </div>
+      <button id="add-book">Add Book</button>
+    </form>
+
+    <button id="open-form">+</button>
+
+    <script src="main.js"></script>
+  </body>
+</html>
