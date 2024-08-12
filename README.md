@@ -12,3 +12,5 @@ Technologies Used
 - HTML5
 - CSS3
 - JavaScript 
+
+(The desing it's not responsive)
