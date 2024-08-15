@@ -11,6 +11,8 @@ Technologies Used
 
 - HTML5
 - CSS3
-- JavaScript 
+- JavaScript
+
+Live preview : https://stathiskotanidis.github.io/Odin-Library/
 
 (The desing it's not responsive)
